@@ -1,47 +1,49 @@
-const fs = module.require("fs");
+const Discord = require("discord.js");
+const ms = require("ms");
 
 module.exports.run = async (bot, message, args) => {
 
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You dont have the permission to mute it bitch!");
-    let toMute = message.mentions.members.first() || message.guild.members.get(args[0]);
-    if(!toMute) return message.channel.send("Gimme the user or the id!");
-    if(toMute.id === message.author.id) return message.channel.send("Why for fuck's sake you're trying to mute urself?");
-    if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("You can't mute a member with higher permissions.");
+  //!tempmute @user 1s/m/h/d
 
-    let mutedRole = message.guild.roles.find(mR => mR.name === "muted");
-    if(!mutedRole) {
-        try {
-            mutedRole = await message.guild.createRole({
-                name: "muted",
-                color: "#000000",
-                permissions: []
-            });
-            message.guild.channels.forEach(async (channel, id) => {
-                await channel.overwritePermissions(mutedRole, {
-                    SEND_MESSAGES: false,
-                    ADD_REACTIONS: false
-                })
-            });
-
-        } catch(e) {
-            console.log(e.stack);
-        }
+  let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+  if(!tomute) return message.reply("Couldn't find user.");
+  if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Can't mute them!");
+  let muterole = message.guild.roles.find(`name`, "muted");
+  //start of create role
+  if(!muterole){
+    try{
+      muterole = await message.guild.createRole({
+        name: "muted",
+        color: "#000000",
+        permissions:[]
+      })
+      message.guild.channels.forEach(async (channel, id) => {
+        await channel.overwritePermissions(muterole, {
+          SEND_MESSAGES: false,
+          ADD_REACTIONS: false
+        });
+      });
+    }catch(e){
+      console.log(e.stack);
     }
-    if(toMute.roles.has(mutedRole.id)) return message.channel.send("user already muted dumbass!");
-    bot.muted[toMute.id] = {
-        guild: message.guild.id,
-        time: Date.now() + parseInt(args[1]) * 1000
-    }
-    await toMute.addRole(mutedRole);
-    
+  }
+  //end of create role
+  let mutetime = args[1];
+  if(!mutetime) return message.reply("You didn't specify a time!");
 
-    fs.writeFile("./commands/mutes.json", JSON.stringify(bot.muted, null, 4), err => {
-        if(err) throw err;
-        message.channel.send(`Alright sir. I muted: ${toMute.user.tag}!`);
-    });
+  await(tomute.addRole(muterole.id));
+  message.reply(`<@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
 
+  setTimeout(function(){
+    tomute.removeRole(muterole.id);
+    message.channel.send(`<@${tomute.id}> has been unmuted!`);
+  }, ms(mutetime));
+
+
+//end of module
 }
 
 module.exports.help = {
-    name: "mute"
+  name: "tempmute"
 }
+
