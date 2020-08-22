@@ -6,7 +6,7 @@ const { dir, log, logOk, logWarn, logError } = require('../lib/console')(modulen
 
 //Consts & vars
 const dataFile = `./data/recommendations_${GlobalData.profile}.json`;
-const maxRecommendations = 50;
+const maxRecommendations = 10;
 let recommendations;
 let targetMessage;
 
@@ -80,19 +80,19 @@ module.exports = {
             scheduleDelete(message); 
             return replyDelete(message, `this is below the latest critical build, you idiot.`);
         }
+        if(buildNum > GlobalData.fxserverVersions.windows.latest){
+            scheduleDelete(message); 
+            return replyDelete(message, `this is above the latest build.`);
+        }
 
         //Adds recommendation and trims array
-        const prev = recommendations.find((x)=> x.author == message.author.id);
-        if(prev){
-            prev.build = buildNum;
-        }else{
-            recommendations.push({
-                nick: message.author.tag,
-                author: message.author.id,
-                build: buildNum
-            });
-        }
-        if(recommendations.length >= 50){
+        recommendations = recommendations.filter(rec => rec.author !== message.author.id)
+        recommendations.push({
+            nick: message.author.tag,
+            author: message.author.id,
+            build: buildNum
+        });
+        if(recommendations.length >= maxRecommendations){
             recommendations = recommendations.slice(-maxRecommendations);
         }
 
@@ -104,7 +104,6 @@ module.exports = {
             return replyDelete(message, `Well, error...`);
         }
 
-        //TODO: bunch of processing stuff
         //Process numbers
         const counter = {};
         recommendations.forEach(rec => {
@@ -138,7 +137,7 @@ module.exports = {
             thumbnail: {
                 url: "https://i.imgur.com/57hsnZ4.png"
             },
-            description: `Please vote the build that you use and consider most stable.\nThis is a croudsourced fxserver build recomendation post.\nWe get the last 50 recommendations and calculate the 3 most popular ones.`,
+            description: `Please vote the build that you use and consider most stable.\nThis is a croudsourced fxserver build recomendation post based on the last **${maxRecommendations}** recommendations.`,
             fields: [
                 {
                     name: " How to vote:",
@@ -147,6 +146,10 @@ module.exports = {
                 {
                     name: "Results:",
                     value: top3
+                },
+                {
+                    name: "Last 5 recommendations:",
+                    value: recommendations.slice(-5).reverse().map(x => x.build).join(', ')
                 }
             ]
         });
