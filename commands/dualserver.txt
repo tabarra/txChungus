@@ -1,9 +1,10 @@
-Step 1: Download the latest server artifact here: https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/?ds
+Step 1: Download the latest server artifact here: https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/?ds 
+(linux link: https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/?Ds)
 Step 2: Make 2 folders in your drive 
 Step 3: Name 1 folder `server1` and the other `server2`
 Step 4: Open the server1 folder and paste in the artifact you downloaded above
 Step 5: Repeat this step for folder named server2
-Step 6: Go in folder server1 and double click fxserver.exe it will open txadmin and follow this tutorial https://www.youtube.com/watch?v=iGfwUCO0RZQ **DO EXACTLY WHAT HE DOES**
+Step 6: Go in folder server1 and double click fxserver.exe it will open txadmin and follow this tutorial for PlumeEsx:https://www.youtube.com/watch?v=iGfwUCO0RZQ **DO EXACTLY WHAT HE DOES** If you want 2 non-PlumeEsx servers then refer to step 8
 Step 7: Close your fxserver.exe in server1 and close txadmin (close the command prompt)
 Step 8: Go in folder server2 and double click fxserver.exe and follow the txadmin setup, do the same as Step 7 (select plume esx if you want another plume esx server or cfx_default if you want to make a different kind of second server)
 Step 9: Close the fxserver.exe in folder server2 and go to the Start_3372_Default (name may vary depending on what fxversion you have) and right click and click edit
