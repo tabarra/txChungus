@@ -1,1 +1,1 @@
-Please update to txAdmin v2, where quickedit is not an issue anymore.
+Please update to txAdmin v2, where quick edit is not an issue anymore.

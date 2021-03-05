@@ -1,3 +1,3 @@
 **txData** is the folder where txAdmin stores its admins, configs, players, logs and etc.
-<:windows:791692679419265044> **Windows location:** besides the fxserver folder (`<citizen_root>/../txData`)
+<:windows:791692679419265044> **Windows location:** besides the FXServer folder (`<citizen_root>/../txData`)
 <:linux:780972840454979604> **Linux Location:** besides the alpine folder (`<citizen_root>/../../../txData`)

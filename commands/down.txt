@@ -1,0 +1,4 @@
+**txAdmin is self-hosted and not a service**
+This means the FiveM server owner is the one running it, instead of us. 
+Because of that, asking "is txadmin down" makes no sense.  
+If you are the server owner, make sure txAdmin is still running.

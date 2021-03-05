@@ -8,7 +8,7 @@ module.exports = {
     async execute(message, args, config) {
         //Check permission
         if(!config.admins.includes(message.author.id)){
-            return message.reply(`shut up`);
+            return message.reply(`Your aren't an admin :clown:`);
         }
 
         //Check amount

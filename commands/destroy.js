@@ -10,11 +10,11 @@ module.exports = {
     description: 'Insults a member.',
     async execute(message, args, config) {
         if (!message.mentions.users.size) {
-            return message.reply('you need to tag an user in order to destroy them... fucktard');
+            return message.reply('you need to tag a user in order to destroy them... fucktard');
         }
         const isSelfMentioned = message.mentions.users.filter((u) => u.id == message.client.user.id);
         if(isSelfMentioned.size){
-            return message.reply('you really thought that was gonna work?');
+            return message.reply('you really thought that was gonna work :joy:? https://tenor.com/view/cringe-compilation-cringe-comp-shrek-cringe-gif-11981921');
         }
 
         try {

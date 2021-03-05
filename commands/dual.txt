@@ -5,4 +5,4 @@ If on windows, create a `server2.bat` file inside the FXServer folder and add:
 FXServer.exe +set serverProfile "server2" +set txAdminPort "40125"
 pause
 ```
-*(feel free to choose any other name or port)*
+*(feel free to choose any other name or port :wink:)*

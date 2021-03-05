@@ -1,6 +1,6 @@
-In 5 minutes I can fully cook Instant Cup Noodles :ramen: and eat half of it, yet your server can't start in that time?  
+In 5 minutes I can fully cook an Instant Cup Of Noodles :ramen: and eat half of it, yet your server can't even start!
 You for sure:
-a) Have way too many resources. You know all those oversized asset warnings? yeah that's a thing.
-b) Have some slow-loading resources like chocohax.
+a) Have way too many resources. You know all those oversize asset warnings? yeah that's a thing.
+b) Have some slow-loading resources like Chocohax.
 c) Have a slow CPU.
-Do not try to change txAdmin, fix YOUR server.
+Do not try to change txAdmin, please fix YOUR server.

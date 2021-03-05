@@ -1,1 +1,1 @@
-If you are seing bigger than expected RAM usage values on Linux (buff+cache), update txAdmin for a more pricise value.
+If you are seeing bigger than expected RAM usage values on Linux (buff+cache), update txAdmin for a more precise value.

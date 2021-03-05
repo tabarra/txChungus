@@ -1,5 +1,5 @@
 **The issue you are having is not caused by txAdmin itself.**
-If you are saying `but only happens when I start the server with tx`, then these might be the reason:
+If you are saying `but only happens when I start the server with txadmin`, then these might be the reason:
 :zero: Please go to the settings and make sure the OneSync option selected is compatible with your scripts!
 :one: You are using different artifacts, which can cause differences (specially when updating);
 :two: You selected different `server data` or `server.cfg` when running with txAdmin;

@@ -1,2 +1,2 @@
 Contrary to popular belief, you should not delete your server cache folder.  
-This was only required sometimes in very very old versions of fxserver.
+This was only required sometime ago in very very old versions of FXServer.

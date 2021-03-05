@@ -18,12 +18,12 @@ const bot = new txChungus(config, profile);
 
 //Handle "the unexpected"
 process.on('unhandledRejection', (err) => {
-    logError("Ohh nooooo - unhandledRejection")
+    logError("Ohh Nooooo - unhandledRejection")
     logError(err.message)
     dir(err.stack)
 });
 process.on('uncaughtException', function(err) {
-    logError("Ohh nooooo - uncaughtException")
+    logError("Ohh Nooooo - uncaughtException")
     logError(err.message)
     dir(err.stack)
 });

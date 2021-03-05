@@ -1,7 +1,7 @@
 We **strongly** suggest you using the following folder structure.
 This allows you to easily update or downgrade the artifact without messing with your base files.
 ```
-📁C:/.../Desktop/fivem-server
+📁C:/.../Desktop/FiveM-server
 ├── 📁txData (created automatically)
 ├── 📁<artifact number>
 │   └── 📦FXServer.exe
