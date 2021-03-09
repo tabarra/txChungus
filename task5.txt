@@ -1,5 +1,5 @@
 If task 5 `[connect_database]` is failing when setting up PlumeESX, there is an easy fix!
-:one: Download and install a XAMPP: <https://www.apachefriends.org/>
+:one: Download and install XAMPP: <https://www.apachefriends.org/>
 :two: Start MySQL: <https://i.imgur.com/UNnKmnt.png>
 :three: On txAdmin, click on the Cancel button and try again.
 **DO NOT** change any database configuration in the deployer step 2 (like username, password or database name).
