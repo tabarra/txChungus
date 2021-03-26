@@ -1,2 +1,2 @@
 Do not modify the CSS file:
-https://github.com/tabarra/txAdmin/blob/master/docs/dev_interface.md
+<https://docs.txadm.in/docs/dev-interface>
