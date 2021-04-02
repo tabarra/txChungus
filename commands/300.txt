@@ -1,6 +1,6 @@
 In 5 minutes I can fully cook Instant Cup Noodles :ramen: and eat half of it, yet your server can't start in that time?  
 You for sure:
-a) Have way too many resources. You know all those oversized asset warnings? yeah that's a thing.
+a) Have way too many resources. You know all those oversized asset warnings? yeah that's a thing. see this guide on how to fix <https://forum.cfx.re/t/how-to-optimize-texture-size-faster/2539856>
 b) Have some slow-loading resources like chocohax.
 c) Have a slow CPU.
 Do not try to change txAdmin, fix YOUR server.
