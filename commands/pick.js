@@ -26,14 +26,15 @@ module.exports = {
             const header = [
                     `${message.author} asked me to pick from:`,
                     `> ${thingsToPick.join(` ${splitter} `)}`,
-            `I picked:`,
-            `> `
-        ].join('\n');
-        const outMsg = await message.channel.send(header + rndFromArray(pickingGifs));
-        const answer = rndFromArray(thingsToPick);
+                    `I picked:`,
+                    `> `
+                    ].join('\n');
 
-        setTimeout(() => {
-            outMsg.edit(`${header} **${answer}**`);
-        }, 5000);
+            const outMsg = await message.channel.send(header + rndFromArray(pickingGifs));
+            const answer = rndFromArray(thingsToPick       );
+
+            setTimeout(() => {
+                outMsg.edit(`${header} **${answer}**`);
+                 }, 5000);
     },
 };
