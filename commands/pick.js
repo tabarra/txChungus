@@ -10,20 +10,22 @@ const rndFromArray = (arr) => {
 }
 
 module.exports = {
-    rateLimit: {
-        max: 1,
-        resetTime: 15000, // in ms
-        global: true // Rate limit individuals or everyone at once
-    },
-    description: 'Will pick one between few options.',
-    async execute (message, args) {
-        const userOptions = args.join(' ').split(/(?:\s+or\s+|[,;/\|\n])+/i);
-        const thingsToPick = userOptions.map(x => x.trim()).filter(x => x.length);
+        rateLimit: {
+            max: 1,
+            resetTime: 15000, // in ms
+            global: true // Rate limit individuals or everyone at once
+        },
+        description: 'Will pick one between few options.',
+        async execute(message, args) {
+            const joined = args.join(' ')
+            const userOptions = joined.split(/(?:\s+or\s+|[,;/\|\n])+/i);
+            const splitter = joined.match(/(?:\s+or\s+|[,;/\|\n])+/i).toString().trim()
+            const thingsToPick = userOptions.map(x => x.trim()).filter(x => x.length);
 
-        if (thingsToPick.length <= 1) return message.channel.send('Stop trying me to pick from nothing, dickhead!');
-        const header = [
-            `${message.author} asked me to pick from:`,
-            `> ${thingsToPick.join(', ')}`,
+            if (thingsToPick.length <= 1) return message.channel.send('Stop trying me to pick from nothing, dickhead!');
+            const header = [
+                    `${message.author} asked me to pick from:`,
+                    `> ${thingsToPick.join(` ${splitter} `)}`,
             `I picked:`,
             `> `
         ].join('\n');
