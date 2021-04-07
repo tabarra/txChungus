@@ -2,11 +2,11 @@
 const modulename = 'mute';
 const { dir, log, logOk, logWarn, logError } = require('../lib/console')(modulename);
 
-const validTimes = { m: 60000, h: 3600000, d: 86400000 }
+const validTimes = { m: 60000, h: 3600000, d: 86400000, w: 604800000 }
 
 const parseTime = (str) => {
-    // some weird regex i don't know where i got but does the job
-    const match = str.match(/(-?(?:\d+\.?\d*|\d*\.?\d+)(?:e[-+]?\d+)?)([d,h,m,s])/)
+    // creds go to goat and me
+    const match = str.match(/(\d+)\s?([mdhsw])/)
     if (match && validTimes[match[2]]) {
         return parseInt(match[1] * validTimes[match[2]])
     }
@@ -15,7 +15,7 @@ const parseTime = (str) => {
 
 module.exports = {
     description: 'Mutes a person for x amount of time',
-    async execute (message, args, config) {
+    async execute(message, args, config) {
         //Check permission
         if (!config.admins.includes(message.author.id)) {
             return message.reply(`You're not allowed to use this command`);
