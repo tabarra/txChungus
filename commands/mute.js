@@ -1,6 +1,7 @@
 //Requires
 const modulename = 'mute';
 const { dir, log, logOk, logWarn, logError } = require('../lib/console')(modulename);
+const humanizeDuration = require("humanize-duration");
 
 const validTimes = { m: 60000, h: 3600000, d: 86400000, w: 604800000 }
 
@@ -31,9 +32,9 @@ module.exports = {
         const reason = args.slice(2).join(" ") || 'No reason specified';
 
         mention.roles.add(config.mutedRole).catch(() => message.channel.send('Something terrible just happened, fuck. Most likely missing permissions'));
-
+        const expiresAt = humanizeDuration(parsedTime)
         GlobalData.addMute({ id: mention.user.id, expire: Date.now() + parsedTime, reason });
-        message.channel.send(`Muted \`${mention.displayName}\` for \`${args[1]}\`\nReason: \`${reason}\``);
-        mention.send(`You have been muted for \`${args[1]}\`\nReason: \`${reason}\``).catch(() => logWarn("Failed to send a dm, propably disabled dms"));
+        message.channel.send(`Muted \`${mention.displayName}\` for \`${args[1]}\`\nReason: \`${reason}\`\nExpires in: \`${expiresAt}\``);
+        mention.send(`You have been muted for \`${args[1]}\`\nReason: \`${reason}\`\nExpires in: \`${expiresAt}\``).catch(() => logWarn("Failed to send a dm, propably disabled dms"));
     }
 };
