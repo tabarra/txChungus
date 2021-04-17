@@ -3,6 +3,6 @@
         - Restart txAdmin;
         - Open the page and follow the instructions.
 :lock: **Resetting the password of a specific user:**
-        - Use <https://passwordhashing.com/BCrypt> to generate a new password hash;
+        - Use <https://hypelevels.xyz/bcryptgen> to generate a new password hash;
         - Open `txData/admins.json`, replace the hash for the user and save the file;
         - Wait 15 seconds and try to login.
