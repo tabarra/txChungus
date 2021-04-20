@@ -20,9 +20,6 @@ module.exports = {
         if (!mention || !args[1]) return message.reply('Please use the correct command format. `!shoo @mention tx/fx/res/zap/pt`');
         if (mention.user.id === message.author.id) return message.reply('lol what'); //user trying to shoo himself
         if (mention.user.id === message.client.user.id) return message.reply('dont think so'); //user trying to shoo chungus
-        if (GlobalData.mutes.find(mute => mute.id == mention.id)) {
-            GlobalData.removeMute(mention.id);
-        }
 
         const location = args[1]
         if (locations.has(location)) {
