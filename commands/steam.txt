@@ -1,8 +1,0 @@
-Getting Steam errors like: *"Unable to find 'steam' identifier"* or *"steam ID not enabled"* but steam is running?
-Try these following suggestions:
-:one: Set your [Steam API key](https://steamcommunity.com/dev/apikey)
-:two: Add FiveM to your steam library
-> Open your Steam launcher and go to your library
-> Click the **`+ ADD A GAME`** located in bottom left corner of steam
-> Click add non-steam game
-> And choose FiveM from the pop-up list (*C:\Users\\<user>\AppData\Local\FiveM\FiveM.exe* if not found on the list)
