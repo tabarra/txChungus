@@ -18,6 +18,7 @@
         "latestTXAdminVersionOnArtifact": 1234,
         "mutedRole": "11111111111111111111"
     },
+    "trustedRoles": [],
     "bannedStrings": [
         "mega.nz",
         "anonfiles",
