@@ -1,4 +1,5 @@
 //Requires
+const { MessageEmbed } = require('discord.js');
 const modulename = 'mute';
 const { dir, log, logOk, logWarn, logError } = require('../lib/console')(modulename);
 
@@ -36,7 +37,13 @@ module.exports = {
         mention.roles.add(config.commands.mutedRole).catch(() => message.channel.send('Something terrible just happened, fuck. Most likely missing permissions'));
 
         GlobalData.addMute({ id: mention.user.id, expire: Date.now() + parsedTime, reason });
-        message.channel.send(`Muted \`${mention.displayName}\` for \`${args[1]}\`\nReason: \`${reason}\``);
+        const embed = new MessageEmbed()
+            .setTitle(`${mention.displayName} just got zippered 🤐`)
+            .addField(`**__Time:__**`, `\`\`\`${args[1]}\`\`\``,true)
+            .addField(`**__Reason:__**`,`\`\`\`${reason}\`\`\``, true)
+            .setColor(`RANDOM`)
+        await message.channel.send(embed)
+        //message.channel.send(`Muted \`${mention.displayName}\` for \`${args[1]}\`\nReason: \`${reason}\``);
         mention.send(`You have been muted for \`${args[1]}\`\nReason: \`${reason}\``).catch(() => logWarn("Failed to send a DM, propably disabled DMs"));
     }
 };
