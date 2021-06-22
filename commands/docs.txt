@@ -1,2 +1,2 @@
 Please read the installation instructions:
-<https://github.com/tabarra/txAdmin#installing--running>
+<https://docs.txadm.in/docs/building>

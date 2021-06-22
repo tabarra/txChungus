@@ -1,3 +1,3 @@
 txAdmin events: `scheduledRestart`, `playerKicked`, `playerWarned`, `playerBanned`, `playerWhitelisted`.
 To learn more, check our docs: 
-<https://github.com/tabarra/txAdmin/blob/master/docs/events.md>
+<https://docs.txadm.in/docs/events>
