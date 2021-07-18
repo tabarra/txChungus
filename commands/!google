@@ -1,0 +1,23 @@
+module.exports = {
+    description: 'redirect to Google, aint no time to say ayo Google that yourself.',
+    aliases: ['google', 'g'],
+    async execute(message, args, config) {
+
+        const isSelfMentioned = message.mentions.users.filter((u) => u.id == message.client.user.id);
+        if(isSelfMentioned.size){
+            return message.reply(`you really thought you can redirect **me** to Google? good one kek. I know everything already. forgot wiping 'em cheeks huh?`);
+        }
+
+        const mentions = message.mentions.users;
+        const mentionsMap = mentions.map(x => `<@${x.id}>`).join(' ');
+        if (!mentions || mentions.size === 0) return message.channel.send(`did you know that you can use Google to find answers to your questions?`)
+
+        const arguments = args.slice(0).join(' ');
+        if(!arguments) return message.channel.send((`${mentionsMap}, how about ${mentions.size === 1 ? `you` : `y'all`} just **Google** that yourself instead of asking us?`).trim())
+
+        const url = `https://letmegooglethat.com/?q=${encodeURIComponent(arguments)}`
+
+        const outMsg = (`${mentionsMap}, how about ${mentions.size === 1 ? `you` : `y'all`} just **Google** that yourself instead of asking us?\n > <` + url + '>').trim();
+        return message.channel.send(outMsg)
+    },
+};
